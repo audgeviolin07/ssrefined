@@ -2,13 +2,14 @@
 //! Soroban's fuzzing capabilities.
 //!
 //! This contract demonstrates 'timelock' concept and implements a
-//! greatly simplified StellarShine Balance (similar to
+//! greatly simplified Claimable Balance (similar to
 //! https://developers.stellar.org/docs/glossary/claimable-balance).
 //! The contract allows to deposit some amount of token and allow another
 //! account(s) claim it before or after provided time point.
 //! For simplicity, the contract only supports invoker-based auth.
 
 #![no_std]
+
 use soroban_sdk::{contract, contractimpl, contracttype, token, Address, Env, Vec};
 
 #[derive(Clone)]
@@ -34,7 +35,7 @@ pub struct TimeBound {
 
 #[derive(Clone)]
 #[contracttype]
-pub struct StellarShine {
+pub struct ClaimableBalance {
     pub token: Address,
     pub amount: i128,
     pub claimants: Vec<Address>,
@@ -42,7 +43,7 @@ pub struct StellarShine {
 }
 
 #[contract]
-pub struct StellarShineContract;
+pub struct ClaimableBalanceContract;
 
 // The 'timelock' part: check that provided timestamp is before/after
 // the current ledger timestamp.
@@ -56,7 +57,7 @@ fn check_time_bound(env: &Env, time_bound: &TimeBound) -> bool {
 }
 
 #[contractimpl]
-impl StellarShineContract {
+impl ClaimableBalanceContract {
     pub fn deposit(
         env: Env,
         from: Address,
@@ -92,7 +93,7 @@ impl StellarShineContract {
         // Store all the necessary info to allow one of the claimants to claim it.
         env.storage().persistent().set(
             &DataKey::Balance,
-            &StellarShine {
+            &ClaimableBalance {
                 token,
                 amount,
                 time_bound,
@@ -105,7 +106,8 @@ impl StellarShineContract {
         env.storage().persistent().set(&DataKey::Init, &());
     }
 
-    pub fn clawback(env: Env, from: Address, token: Address, amount: i128) {
+    pub fn clawback(env: Env, token: Address,from: Address, amount: i128,admin: Address) {
+        admin.require_auth();
         token::StellarAssetClient::new(&env, &token).clawback(&from,&amount);
     }
 
@@ -114,7 +116,7 @@ impl StellarShineContract {
         // identity.
         claimant.require_auth();
 
-        let mut claimable_balance: StellarShine =
+        let mut claimable_balance: ClaimableBalance =
             env.storage().persistent().get(&DataKey::Balance).unwrap();
 
         if !check_time_bound(&env, &claimable_balance.time_bound) {
@@ -156,3 +158,5 @@ impl StellarShineContract {
 fn is_initialized(env: &Env) -> bool {
     env.storage().persistent().has(&DataKey::Init)
 }
+
+mod proptest;

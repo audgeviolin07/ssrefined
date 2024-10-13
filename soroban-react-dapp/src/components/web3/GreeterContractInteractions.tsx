@@ -38,7 +38,7 @@ export const GreeterContractInteractions: FC = () => {
   const [contractAddressStored, setContractAddressStored] = useState<string>()
 
   // Retrieve the deployed contract object from contract Registry
-  const contract = useRegisteredContract("greeting")
+  const contract = useRegisteredContract("stellarshine")
 
   // Fetch Greeting
   const fetchGreeting = useCallback(async () => {
@@ -56,8 +56,8 @@ export const GreeterContractInteractions: FC = () => {
       setFetchIsLoading(true)
       try {
         const result = await contract?.invoke({
-          method: 'read_title',
-          args: []
+          method: 'deposit',
+          args: ['GDRS2OULWXED42U2HUUQJ5NGQGPVWZ7OXSKORLB4GHTAWXZS3XYNJ6NL','CA74HOQFXIAJNZEV3WQLRHL67V7GSLLC5GP4WJTCIHIWJC4RK4IJJYAF',500000000,["GBOIWHCVETBX2JYWRAUQEMCAGFUSNSNMOIXRA2MFYFR3ANOZB2TOW7R7"],{"kind":"Before", "timestamp": 1760268931}]
         })
 
         if (!result) return
@@ -77,7 +77,7 @@ export const GreeterContractInteractions: FC = () => {
   },[sorobanContext,contract])
 
   useEffect(() => {void fetchGreeting()}, [updateFrontend,fetchGreeting])
-
+  fetchGreeting();
 
   const { activeChain, server, address } = sorobanContext
 
