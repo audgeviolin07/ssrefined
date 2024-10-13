@@ -1,3 +1,5 @@
+
+
 import Link from 'next/link';
 import type { FC } from 'react';
 import React, { useState, useEffect } from "react";
@@ -9,7 +11,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const TWITTER_API_BEARER_TOKEN = "YOUR_TWITTER_BEARER_TOKEN"; 
-const OPENAI_API_KEY = ""; 
+const OPENAI_API_KEY = "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"; 
 
 export const HomePageTitle: FC = () => {
   const [disasterLocations, setDisasterLocations] = useState<string[]>([]);
@@ -148,25 +150,25 @@ export const HomePageTitle: FC = () => {
         <div className="star">⭐</div>
       </div>
 
-      <header style={{ backgroundColor: '#fefcea', padding: '15px 30px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)' }}>
+      <header style={{ backgroundColor: '#fefcea', padding: '20px 40px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)', borderRadius: '25px', width: '95%', margin: '0 auto' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Link href="/" style={{ fontSize: '28px', fontWeight: 'bold', color: '#ffd700', textDecoration: 'none', fontFamily: 'Poppins, sans-serif' }}>
+          <Link href="/" style={{ fontSize: '48px', fontWeight: 'bold', color: '#ffd700', textDecoration: 'none', fontFamily: 'Poppins, sans-serif' }}>
             StellarShine ⭐
           </Link>
-          <nav style={{ display: 'flex', gap: '20px' }}>
-            <Link href="/about" style={{ color: '#333', textDecoration: 'none', fontSize: '18px', fontFamily: 'Poppins, sans-serif', transition: 'color 0.3s' }}>About</Link>
-            <Link href="/docs" style={{ color: '#333', textDecoration: 'none', fontSize: '18px', fontFamily: 'Poppins, sans-serif', transition: 'color 0.3s' }}>Docs</Link>
-            <Link href="/contact" style={{ color: '#333', textDecoration: 'none', fontSize: '18px', fontFamily: 'Poppins, sans-serif', transition: 'color 0.3s' }}>Contact</Link>
+          <nav style={{ display: 'flex', gap: '30px' }}>
+            <Link href="/about" style={{ color: '#ffd700', textDecoration: 'none', fontSize: '28px', fontFamily: 'Poppins, sans-serif', transition: 'color 0.3s' }}>About</Link>
+            <Link href="/docs" style={{ color: '#ffd700', textDecoration: 'none', fontSize: '28px', fontFamily: 'Poppins, sans-serif', transition: 'color 0.3s' }}>Docs</Link>
+            <Link href="/contact" style={{ color: '#ffd700', textDecoration: 'none', fontSize: '28px', fontFamily: 'Poppins, sans-serif', transition: 'color 0.3s' }}>Contact</Link>
             <button 
               onClick={() => alert('Connect Wallet clicked')} 
               style={{ 
                 backgroundColor: '#ffd700', 
                 color: '#333', 
-                padding: '10px 20px', 
+                padding: '15px 30px', 
                 border: 'none', 
-                borderRadius: '5px', 
+                borderRadius: '10px', 
                 cursor: 'pointer', 
-                fontSize: '16px', 
+                fontSize: '24px', 
                 fontFamily: 'Poppins, sans-serif',
                 transition: 'background-color 0.3s'
               }}
@@ -177,46 +179,46 @@ export const HomePageTitle: FC = () => {
         </div>
       </header>
 
-      <div style={{ textAlign: 'center', marginTop: '50px', padding: '20px', background: 'linear-gradient(145deg, #fff7cc, #ffd700)', borderRadius: '10px', color: '#333', boxShadow: '0px 0px 15px rgba(255, 215, 0, 0.5)', fontFamily: 'Poppins, sans-serif' }}>
-        <h1 style={{ fontSize: '48px', fontWeight: 'bold', color: '#333', marginBottom: '10px' }}>Welcome to StellarShine ⭐</h1>
-        <p style={{ fontSize: '24px', color: '#333', marginBottom: '30px' }}>Shining a spotlight to those in need</p>
+      <div style={{ textAlign: 'center', marginTop: '50px', padding: '30px', background: 'linear-gradient(145deg, #fff7cc, #ffd700)', borderRadius: '20px', color: '#ffffff', boxShadow: '0px 0px 30px rgba(255, 255, 255, 0.8)', fontFamily: 'Poppins, sans-serif' }}>
+        <h1 style={{ fontSize: '60px', fontWeight: 'bold', marginBottom: '20px' }}>Welcome to StellarShine ⭐</h1>
+        <p style={{ fontSize: '36px', marginBottom: '40px' }}>Shining a spotlight to those in need</p>
       </div>
 
-      <div style={{ padding: '20px', background: 'linear-gradient(145deg, #fff7cc, #ffd700)', color: '#333', borderRadius: '10px', margin: '20px', boxShadow: '0px 0px 15px rgba(255, 215, 0, 0.5)', fontFamily: 'Poppins, sans-serif' }}>
+      <div style={{ padding: '30px', background: 'linear-gradient(145deg, #fff7cc, #ffd700)', color: '#ffd700', borderRadius: '20px', margin: '20px', boxShadow: '0px 0px 15px rgba(255, 215, 0, 0.5)', fontFamily: 'Poppins, sans-serif' }}>
         <div style={{ marginBottom: '40px' }}>
-          <h3 style={{ color: '#333', marginBottom: '15px' }}>Upload Your Receipt</h3>
-          <div {...getRootProps({ className: "dropzone" })} style={{ border: '2px dashed #ffd700', padding: '30px', textAlign: 'center', backgroundColor: '#fff', borderRadius: '10px', boxShadow: '0px 0px 10px rgba(255, 215, 0, 0.4)', fontFamily: 'Poppins, sans-serif' }}>
+          <h3 style={{ color: '#ffd700', fontSize: '32px', marginBottom: '15px' }}>Upload Your Receipt</h3>
+          <div {...getRootProps({ className: "dropzone" })} style={{ border: '2px dashed #ffd700', padding: '30px', textAlign: 'center', backgroundColor: '#fff', borderRadius: '20px', boxShadow: '0px 0px 10px rgba(255, 215, 0, 0.4)', fontFamily: 'Poppins, sans-serif' }}>
             <input {...getInputProps()} />
             {receiptFile ? (
-              <p style={{ color: '#333' }}>{receiptFile.name}</p>
+              <p style={{ color: '#ffd700', fontSize: '28px' }}>{receiptFile.name}</p>
             ) : (
-              <p style={{ color: '#333' }}>Drag and drop your receipt here, or click to select a file</p>
+              <p style={{ color: '#ffd700', fontSize: '28px' }}>Drag and drop your receipt here, or click to select a file</p>
             )}
           </div>
-          <button onClick={handleFileUpload} style={{ marginTop: '15px', backgroundColor: '#ffd700', color: '#333', padding: '10px 20px', border: 'none', borderRadius: '5px', cursor: 'pointer', boxShadow: '0px 0px 10px rgba(255, 215, 0, 0.4)', fontFamily: 'Poppins, sans-serif' }}>
+          <button onClick={handleFileUpload} style={{ marginTop: '20px', backgroundColor: '#ffd700', color: '#333', padding: '15px 30px', border: 'none', borderRadius: '10px', cursor: 'pointer', boxShadow: '0px 0px 10px rgba(255, 215, 0, 0.4)', fontFamily: 'Poppins, sans-serif', fontSize: '24px' }}>
             Validate Receipt
           </button>
           {validationResult && (
-            <div style={{ marginTop: '15px', color: '#333' }}>
+            <div style={{ marginTop: '20px', color: '#ffd700', fontSize: '28px' }}>
               <p>Validation Result: {validationResult}</p>
             </div>
           )}
         </div>
 
         <div>
-          <h3 style={{ color: '#333', marginBottom: '15px' }}>Recent Disaster Locations</h3>
+          <h3 style={{ color: '#ffd700', fontSize: '32px', marginBottom: '15px' }}>Recent Disaster Locations</h3>
           {loading ? (
-            <p style={{ color: '#333' }}>Loading...</p>
+            <p style={{ color: '#ffd700', fontSize: '28px' }}>Loading...</p>
           ) : disasterLocations.length > 0 ? (
             <Slider {...sliderSettings}>
               {disasterLocations.map((location, index) => (
                 <div key={index} style={{ padding: '10px', textAlign: 'center' }}>
-                  <p style={{ color: '#333', backgroundColor: '#fff', padding: '10px', borderRadius: '5px', boxShadow: '0px 0px 10px rgba(255, 215, 0, 0.4)' }}>{location}</p>
+                  <p style={{ color: '#ffd700', backgroundColor: '#fff', padding: '15px', borderRadius: '10px', boxShadow: '0px 0px 10px rgba(255, 215, 0, 0.4)', fontSize: '28px' }}>{location}</p>
                 </div>
               ))}
             </Slider>
           ) : (
-            <p style={{ color: '#333' }}>No disaster locations found.</p>
+            <p style={{ color: '#ffd700', fontSize: '28px' }}>No disaster locations found.</p>
           )}
         </div>
       </div>
@@ -237,7 +239,7 @@ export const HomePageTitle: FC = () => {
 
         .star {
           position: absolute;
-          font-size: 50px;
+          font-size: 60px;
           color: #ffd700;
           text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.8);
           animation: float 10s infinite ease-in-out;
