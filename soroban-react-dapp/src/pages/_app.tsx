@@ -58,10 +58,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           <ChakraProvider>
             <DarkMode>
               <GlobalStyles />
-
               <BaseLayout>
                 <Component {...pageProps} />
               </BaseLayout>
+            
 
               <HotToastConfig />
             </DarkMode>
