@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const TWITTER_API_BEARER_TOKEN = "YOUR_TWITTER_BEARER_TOKEN"; 
-const OPENAI_API_KEY = "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"; 
+const OPENAI_API_KEY = ""; 
 
 export const HomePageTitle: FC = () => {
   const [disasterLocations, setDisasterLocations] = useState<string[]>([]);
